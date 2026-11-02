@@ -1,0 +1,120 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Background colors */
+    --bg-primary-color: #0c0c0c;
+    --bg-fill-color:#fcfcfd;
+    --bg-food-color:#1e1ed0;
+    /* Text colors */
+    --text-primary-color: #f0f0f0;
+
+    /* Border colors */
+    --border-primary-color: #333333;
+
+    /* Spacing variables */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 40px;
+    --space-3xl: 48px;
+
+    /* Border radius */
+    --border-radius-xs: 4px;
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 20px;
+    --border-radius-2xl: 24px;
+    --border-radius-3xl: 28px;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    background-color: var(--bg-primary-color);
+    color: var(--text-primary-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+main,
+section {
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    padding: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+   height: 100%;
+    gap:var(--space-lg)
+}
+
+section .infos {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.info {
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--border-primary-color);
+    border-radius: var(--border-radius-sm);
+}
+
+.board {
+    position: relative;
+    border: 1px solid var(--border-primary-color);
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px,1fr));
+    grid-template-rows: repeat(auto-fill, minmax(30px,1fr));
+}
+
+.block {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--border-primary-color);
+}
+
+.fill{
+    background-color: var(--bg-fill-color);
+}
+
+.food{
+    background-color: var(--bg-food-color);
+}
+
+.game-status {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(0 0 0 / 65%);
+    color: var(--text-primary-color);
+    font-size: clamp(2rem, 8vw, 5rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-shadow: 0 4px 18px rgb(0 0 0 / 70%);
+    pointer-events: none;
+}
+
+.game-status.is-visible {
+    display: flex;
+}
+
+.game-status.is-game-over {
+    color: #ff3b3b;
+}
